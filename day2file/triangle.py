@@ -13,6 +13,13 @@ try:
         judgement3 = length2 + length3
         if judgement1 > length3 and judgement2 > length2 and judgement3 > length1:
             print("这三边似乎能构成三角形:)")
+            print("尝试计算周长与面积……")
+            perimeter = length1 + length2 + length3
+            p = perimeter/2
+            AreaO = (p - length1)*(p - length2)*(p - length3)
+            Area = (p * AreaO) ** 0.5
+            print("周长是：", perimeter)
+            print("面积是：", Area)
         else:
             print("这三边似乎不能构成三角形:(")
     else:
