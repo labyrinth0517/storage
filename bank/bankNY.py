@@ -57,7 +57,7 @@ def getInform(account):
 # 开户
 def bank_addUser(username, password, country, province, street, door):
     if username in bank:
-        print(2)
+        print(2,":用户已存在")
     elif len(bank) > 100:
         print(3)
     elif username not in bank:
@@ -107,7 +107,7 @@ def selectUser(account, password):
                 st = str(i)
                 print(st, ":", bank[i])
     else:
-        print('account or password wrong.')
+        print('用户名或密码错误，或账号不存在')
 
 
 # 银行转账
