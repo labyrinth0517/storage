@@ -114,12 +114,17 @@ def selectUser(account, password):
 def transMoney(account, password, ToAccount):
     for i in bank.keys():
         if bank[i]['account'] == account and bank[i]['password'] == password:
+            a = bank[i]
             print('登陆成功，请输入转入账户：')
             if bank[getInform(ToAccount)]['account'] == ToAccount:
                 print('找到账户，请输入转入金额：')
                 money = int(input())
-                bank[i]['money'] += money
-                print('success')
+                if a['money'] >= money:
+                    a['money'] -= money
+                    bank[i]['money'] += money
+                    print('success')
+                else:
+                    print('金额不够')
         else:
             print('account or password wrong.')
 
