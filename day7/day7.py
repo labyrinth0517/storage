@@ -29,7 +29,6 @@ def Clothes_ProportionOfSaleNumsYear():
             getTR = ts.row_values(j)
             sum3 += int(getTR[4])
         sum4 += sum3
-    print(sum4)
     # 遍历并展示所有衣服销售件数占比
     # 遍历并展示所有衣服销售总件数（全年）
     clothesShow = {}
@@ -42,17 +41,17 @@ def Clothes_ProportionOfSaleNumsYear():
             elif getCR[1] in clothesShow:
                 clothesShow[getCR[1]] += int(getCR[4])
     # 全服装名称列表
-    clslist = []
+    clothesline = []
     for i in range(12):
         csn = wb.sheet_by_index(i)
         for j in range(1, csn.nrows):
             getCR = csn.row_values(j)
-            if getCR[1] not in clslist:
-                clslist.append(getCR[1])
+            if getCR[1] not in clothesline:
+                clothesline.append(getCR[1])
             else:
                 pass
     # 占比，重新赋值字典值
-    for j in clslist:
+    for j in clothesline:
         clothesShow[j] = (clothesShow[j] / sum4) * 100
     print('每种衣服的销售（件数）占比：', clothesShow)
 
@@ -230,3 +229,5 @@ while True:
     elif getInp == 'q':
         print('结束，欢迎使用:)')
         break
+    else:
+        print('不在服务列表里，请重新输入:)')
