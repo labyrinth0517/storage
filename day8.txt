@@ -1,0 +1,82 @@
+【练习题】
+SELECT *
+FROM t_employees t2, t_dept t1
+WHERE t1.`deptno` = t2.`deptno`
+
+
+--1
+SELECT ename, deptno
+FROM t_employees
+WHERE deptno = '30'
+
+--2
+SELECT ename, job, deptno
+FROM t_employees
+WHERE job = '经理'
+
+--3
+SELECT ename, sal, comm
+FROM t_employees 
+WHERE t_employees.`comm` > t_employees.`sal`
+
+--4
+SELECT ename, sal, comm
+FROM t_employees
+WHERE t_employees.`sal` * 0.6 <= t_employees.`comm`
+
+--5
+SELECT *
+FROM t_employees
+WHERE (t_employees.`deptno`='10' AND t_employees.`job`='经理')
+OR (t_employees.`deptno`= '20' AND t_employees.`job`='分析员')
+
+--6
+SELECT *
+FROM t_employees
+WHERE (t_employees.`deptno`='10' AND t_employees.`job`='经理')
+OR (t_employees.`deptno`= '20' AND t_employees.`job`='分析员')
+OR (t_employees.`job` != '经理' AND job!='武装上将' AND sal >= 3000)
+
+--7
+SELECT *
+FROM t_employees
+WHERE t_employees.`comm` IS NULL
+OR comm < 1000
+
+--8
+SELECT *
+FROM t_employees
+WHERE ename LIKE '___'
+
+--9
+SELECT *
+FROM t_employees
+WHERE t_employees.`hiredate` > '2000-01-01'
+
+--10
+SELECT *
+FROM t_employees
+ORDER BY t_employees.`empno` ASC
+
+--11
+SELECT *
+FROM t_employees
+ORDER BY t_employees.`sal` DESC,t_employees.`hiredate` ASC
+
+
+--12
+SELECT deptno, AVG(sal)
+FROM t_employees
+GROUP BY t_employees.`deptno`
+
+--13
+SELECT deptno, COUNT(*)
+FROM t_employees
+GROUP BY deptno
+
+--14
+SELECT ename, job, COUNT(*),MAX(sal)
+FROM t_employees
+GROUP BY job
+
+
