@@ -4,9 +4,9 @@ from tool1 import *
 wb = xlrd.open_workbook(filename='excelD7.xls')
 param1 = []
 
-for i in range(1):
+for i in range(12):
     ts = wb.sheet_by_index(i)
-    for j in range(1, 10):
+    for j in range(1, ts.nrows):
         gcv = ts.row_values(j)
         for x in gcv:
             param1.append(x)
