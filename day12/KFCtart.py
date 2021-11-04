@@ -50,7 +50,7 @@ class customer(Thread):
             elif basket == 0:
                 time.sleep(3)
             elif self.__money == 0:
-                print(self.__name1, '没钱了,共抢到蛋挞', self.__count, '个，花费金钱：', self.__money)
+                print(self.__name1, '没钱了,共抢到蛋挞', self.__count, '个，花费金钱：', self.__count * 3)
                 break
 
 
