@@ -33,12 +33,6 @@ class customer(Thread):
     def setName1(self, name1):
         self.__name1 = name1
 
-    def getName1(self):
-        return self.__name1
-
-    def getCount(self):
-        return self.__count
-
     def run(self) -> None:
         global basket
         while True:
